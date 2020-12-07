@@ -6,6 +6,7 @@ import java.awt.event.*;
 public class Continents implements ActionListener{
   JFrame frame;
   JPanel panel;
+  JLabel label;
   JButton button, button2;
 
 
@@ -16,15 +17,18 @@ public class Continents implements ActionListener{
 
     frame = new JFrame("Poggeur");
     panel = new JPanel();
-    button = new JButton("b");
-
-    button = new JButton("b");
-
+    button = new JButton("a");
+    button2 = new JButton("b");
+    label = new JLabel("hello");
 
     button.addActionListener(this);
-    button.addActionListener(this);
+    button2.addActionListener(this);
     
     panel.add(button);
+    panel.add(button2);
+    panel.add(button2);
+    panel.add(button2);
+    panel.add(label);
 
     frame.add(panel);
 
@@ -32,14 +36,15 @@ public class Continents implements ActionListener{
     frame.setVisible(true);
   } //END construtor
 
-  public static void main(String args[]){
-  //contList = new ArrayList<String>;
-  //contList.add()
-  System.out.println(getMajorCity(continent));
-  }
+  public void actionPerformed(ActionEvent e){
+    String buttonName = e.getActionCommand();
+
+    System.out.println("Button Name " + buttonName);
+  } //END actionPerformed function
+
 
   public static String getMajorCity(int contNumber){
-
+    Continents fuckwad = new Continents();
     String output;
 
     switch(contNumber){
@@ -79,5 +84,11 @@ public class Continents implements ActionListener{
     
   } //END Main
 
+  public static void main(String args[]){
+    //contList = new ArrayList<String>;
+    //contList.add()
+    System.out.println(getMajorCity(continent));
+
+  } //MAIN
   
 } //END Class
