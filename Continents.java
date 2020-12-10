@@ -1,6 +1,5 @@
-//import Java.util.ArrayList;
+import java.util.ArrayList;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class Continents implements ActionListener{
@@ -11,40 +10,58 @@ public class Continents implements ActionListener{
 
 
   static int continent = 4;
-  //static ArrayList<String> contList;
+  static ArrayList<String> contList;
+  static JComboBox<ArrayList> mycombo;
 
   public Continents(){
 
-    frame = new JFrame("Poggeur");
+    frame = new JFrame("jframe givs me 100% but drains my wouol");
     panel = new JPanel();
-    button = new JButton("a");
-    button2 = new JButton("b");
-    label = new JLabel("hello");
+    label = new JLabel("Welcome to the Continents Program!!");
+    button = new JButton("b");
+    
+    button2 = new JButton("BB");
+
 
     button.addActionListener(this);
     button2.addActionListener(this);
     
-    panel.add(button);
-    panel.add(button2);
-    panel.add(button2);
-    panel.add(button2);
-    panel.add(label);
+
+
+
 
     frame.add(panel);
+
+    panel.add(label);
+
+    panel.add(button);
+    panel.add(button2);
 
     frame.setSize(300,300);
     frame.setVisible(true);
   } //END construtor
 
-  public void actionPerformed(ActionEvent e){
-    String buttonName = e.getActionCommand();
+  public static void main(String args[]){
+  contList = new ArrayList<String>();
+  contList.add("Choose a Continent!");
+  contList.add("North America");
+  contList.add("South America");
+  contList.add("Europe");
+  contList.add("Africa");
+  contList.add("Asia");
+  contList.add("Australia");
+  contList.add("Antartica");
+  System.out.println(getMajorCity(continent));
 
-    System.out.println("Button Name " + buttonName);
-  } //END actionPerformed function
+
+  Continents inst1 = new Continents();
+  }
 
 
+
+  //getMajorCity function
   public static String getMajorCity(int contNumber){
-    Continents fuckwad = new Continents();
+
     String output;
 
     switch(contNumber){
@@ -82,13 +99,13 @@ public class Continents implements ActionListener{
 
     return output;
     
-  } //END Main
+  } //END function
 
-  public static void main(String args[]){
-    //contList = new ArrayList<String>;
-    //contList.add()
-    System.out.println(getMajorCity(continent));
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    // TODO Auto-generated method stub
+    System.out.println(e.getActionCommand());
+  }
 
-  } //MAIN
   
 } //END Class
