@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class Continents implements ActionListener{
@@ -54,7 +53,11 @@ public class Continents implements ActionListener{
   contList.add("Antartica");
   System.out.println(getMajorCity(continent));
 
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 5e8e6e8b813a218fa1e7e6762eead14d183d92df
   Continents inst1 = new Continents();
   }
 

@@ -1,0 +1,92 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f328f323401, pid=385, tid=390
+#
+# JRE version: OpenJDK Runtime Environment (11.0.8+10) (build 11.0.8+10-post-Ubuntu-0ubuntu118.04.1)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.8+10-post-Ubuntu-0ubuntu118.04.1, mixed mode, sharing, tiered, compressed oops, serial gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x2401]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /home/runner/Programming-12-Google-Maps/core.385)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: Continents
+
+Host: Intel(R) Xeon(R) CPU @ 2.30GHz, 4 cores, 512M, Ubuntu 18.04.5 LTS
+Time: Mon Dec  7 19:19:14 2020 UTC elapsed time: 7 seconds (0d 0h 0m 7s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f3288059000):  JavaThread "Signal Dispatcher" daemon [_thread_in_vm, id=390, stack(0x00007f328d885000,0x00007f328d986000)]
+
+Stack: [0x00007f328d885000,0x00007f328d986000],  sp=0x00007f328d9831e0,  free space=1016k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x2401]
+C  [libjimage.so+0x30ea]
+C  [libjimage.so+0x35c6]  JIMAGE_FindResource+0xd6
+V  [libjvm.so+0x59097e]
+V  [libjvm.so+0x5936e0]
+V  [libjvm.so+0xd50b85]
+V  [libjvm.so+0xd4e51a]
+V  [libjvm.so+0xd51112]
+V  [libjvm.so+0x645bed]
+V  [libjvm.so+0x83f24c]
+j  jdk.internal.misc.Signal.dispatch(I)V+25 java.base@11.0.8
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x84eb09]
+V  [libjvm.so+0x84d8f5]
+V  [libjvm.so+0xbc3d2c]
+V  [libjvm.so+0xd8996f]
+V  [libjvm.so+0xd860bf]
+V  [libjvm.so+0xbd632e]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  jdk.internal.misc.Signal.dispatch(I)V+25 java.base@11.0.8
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00007f327f914458
+
+Register to memory mapping:
+
+RAX=0x000000000000490f is an unknown value
+RBX=0x00007f328d983291 is pointing into the stack for thread: 0x00007f3288059000
+RCX=0x00007f327f90201c is an unknown value
+RDX=0x000000000000490f is an unknown value
+RSP=0x00007f328d9831e0 is pointing into the stack for thread: 0x00007f3288059000
+RBP=0x00007f328d983200 is pointing into the stack for thread: 0x00007f3288059000
+RSI=0x00007f328d983290 is pointing into the stack for thread: 0x00007f3288059000
+RDI=0x00007f328f526030: <offset 0x0000000000205030> in /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so at 0x00007f328f321000
+R8 =0x0 is NULL
+R9 =0x0000000076100fa4 is an unknown value
+R10=0x00007f328d9832b3 is pointing into the stack for thread: 0x00007f3288059000
+R11=0x00007f329135c07d: <offset 0x0000000000eb307d> in /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so at 0x00007f32904a9000
+R12=0x00007f328d983290 is pointing into the stack for thread: 0x00007f3288059000
+R13=0x00000000000083bc is an unknown value
+R14=0x00007f328d984328 is pointing into the stack for thread: 0x00007f3288059000
+R15=0x00007f3288059b60 points into unknown readable memory: 6a 64 6b 2f 69 6e 74 65
+
+
+Registers:
+RAX=0x000000000000490f, RBX=0x00007f328d983291, RCX=0x00007f327f90201c, RDX=0x000000000000490f
+RSP=0x00007f328d9831e0, RBP=0x00007f328d983200, RSI=0x00007f328d983290, RDI=0x00007f328f526030
+R8 =0x0000000000000000, R9 =0x0000000076100fa4, R10=0x00007f328d9832b3, R11=0x00007f329135c07d
+R12=0x00007f328d983290, R13=0x00000000000083bc, R14=0x00007f328d984328, R15=0x00007f3288059b60
+RIP=0x00007f328f323401, EFLAGS=0x0000000000010246, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f328d9831e0)
+0x00007f328d9831e0:   0000000000000000 00007f3288009600
+0x00007f328d9831f0:   0000000000000000 00007f328d983290
+0x00007f328d983200:   00007f328d983270 00007f328f3240ea
+0x00007f328d983210:   0000000000000000 0000000000000000 
+
+Instructions: (pc=0x00007f328f323401)
+0x00007f328f323301:   c5 4c 01 e3 48 89 ce e8 d3 f3 ff ff e9 69 fd ff
+0x00007f328f323311:   ff 89 d1 0f b7 74 08 fe 66 41 89 74 0e fe e9 7a
+0x00007f328f323321:   fe ff ff 0f 1f 40 00 8b 08 49 8d
