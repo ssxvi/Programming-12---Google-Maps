@@ -1,66 +1,163 @@
 import java.util.ArrayList;
+//import java.util.Arrays;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+import java.awt.GridBagConstraints;  
+import java.awt.GridBagLayout;
 
 public class Continents implements ActionListener{
   JFrame frame;
   JPanel panel;
   JLabel label;
+  JComboBox<String> combo;
   JButton button, button2;
+  JTextField textfield;
 
 
   static int continent = 4;
   static ArrayList<String> contList;
-  static JComboBox<ArrayList> mycombo;
+  static ArrayList<String> contList0;
+  static ArrayList<String> contList1;
+  static ArrayList<String> contList2;
+  static ArrayList<String> contList3;
+  static ArrayList<String> contList4;
+  static ArrayList<String> contList5;
+  static ArrayList<String> contList6;
+  //static JComboBox<String> mycombo;
 
   public Continents(){
+    //choose list
+    contList = new ArrayList<String>();
+    contList.add("Choose a Continent!");
+    contList.add("North America");
+    contList.add("South America");
+    contList.add("Europe");
+    contList.add("Africa");
+    contList.add("Asia");
+    contList.add("Oceania");
+    contList.add("Antartica");
+
+
+    //North America
+    contList1 = new ArrayList<String>();
+    contList1.add("Toronto, Canada");
+    contList1.add("New York, USa");
+    contList1.add("Chicago, USA");
+    contList1.add("Mexico City, Mexico");
+    contList1.add("Vancouver, Canada");
+    contList1.add("San Fransisco, USA");
+    
+
+    //South America
+    contList2 = new ArrayList<String>();
+    contList2.add("Lima, Peru");
+    contList2.add("Montevideo, Urugray");
+    contList2.add("Rio de Janeiro, Brazil");
+    contList2.add("Sao Paulo, Brazil");
+    contList2.add("Belgata, Columbia");
+    contList2.add("Buenos Aires, Argentina");
+
+
+    //Europe
+    contList3 = new ArrayList<String>();
+    contList3.add("London, England");
+    contList3.add("Copenhagen, Denmark");
+    contList3.add("Paris, France");
+    contList3.add("Lisbon, Portugal");
+    contList3.add("Vienna, Austria");
+    contList3.add("Frankfurt, Germany");
+
+
+    //Africa
+    contList4 = new ArrayList<String>();
+    contList4.add("Rabat, Morocco");
+    contList4.add("Kinshasa, Democratic Republic of the Congo");
+    contList4.add("Cairo, Egypt");
+    contList4.add("Cape Town, South Africa");
+    contList4.add("Lagos, Nigeria");
+    contList4.add("Tunis, Tunisia");
+
+
+    //Asia
+    contList5 = new ArrayList<String>();
+    contList5.add("Beijing, China");
+    contList5.add("Riyabh, Saudi Arabia");
+    contList5.add("Nur-Sultan, Kazakhstan");
+    contList5.add("Moscow, Russia");
+    contList5.add("Toyko, Japan");
+    contList5.add("Hong Kong, Hong Kong");
+
+
+    //Australia
+    contList6 = new ArrayList<String>();
+    contList6.add("Perth, Australia");
+    contList6.add("Wellington, New Zealand");
+    contList6.add("Auckland, New Zealand");
+    contList6.add("Syndey Australia");
+    contList6.add("Canberra, Australia");
+    contList6.add("Port Moresby, Papua New Guinea");
+
+    //Australia
+    contList6 = new ArrayList<String>();
+    contList6.add("Fort McMurray, USA");
+    contList6.add("Who tf lives here");
 
     frame = new JFrame("jframe givs me 100% but drains my wouol");
-    panel = new JPanel();
+    panel = new JPanel(new GridBagLayout());
+    GridBagConstraints c = new GridBagConstraints();
+
     label = new JLabel("Welcome to the Continents Program!!");
     button = new JButton("b");
     
-    button2 = new JButton("BB");
+    button2 = new JButton("Find a random city!!!");
 
 
+    // istg this is the most scuffed code i've ever seen holy shit it creates 3 warnings and tries to kill itself it's a fuckinb abomination but it works
+    /* 
+    Object[] comboArray = contList.toArray();
+
+    combo = new JComboBox(comboArray);
+    */
+
+    combo = new JComboBox<String>(contList.toArray(new String[contList.size()]));
+ 
     button.addActionListener(this);
     button2.addActionListener(this);
     
 
 
 
-
+ 
     frame.add(panel);
 
-    panel.add(label);
 
-    panel.add(button);
-    panel.add(button2);
+    c.fill = GridBagConstraints.HORIZONTAL;
+    c.gridwidth = 3;
+    c.weightx = 0.5;
+    c.gridx = 0;
+    c.gridy = 0;
+    panel.add(label, c);
 
-    frame.setSize(300,300);
+
+    c.fill = GridBagConstraints.HORIZONTAL;
+    c.insets = new Insets(10,10,10,10);  //top padding
+    c.weightx = 0.5;
+    c.gridx = 0;
+    c.gridy = 2;
+    panel.add(combo, c);
+
+    c.fill = GridBagConstraints.HORIZONTAL;
+    c.weightx = 0.5;
+    c.gridx = 0;
+    c.gridy = 1;
+    panel.add(button2, c);
+
+    frame.setSize(500,300);
+    //frame.pack();
     frame.setVisible(true);
+
   } //END construtor
-
-  public static void main(String args[]){
-  contList = new ArrayList<String>();
-  contList.add("Choose a Continent!");
-  contList.add("North America");
-  contList.add("South America");
-  contList.add("Europe");
-  contList.add("Africa");
-  contList.add("Asia");
-  contList.add("Australia");
-  contList.add("Antartica");
-  System.out.println(getMajorCity(continent));
-
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> 5e8e6e8b813a218fa1e7e6762eead14d183d92df
-  Continents inst1 = new Continents();
-  }
-
 
 
   //getMajorCity function
@@ -109,7 +206,21 @@ public class Continents implements ActionListener{
   public void actionPerformed(ActionEvent e) {
     // TODO Auto-generated method stub
     System.out.println(e.getActionCommand());
+
+    if (e.getSource() == button2){
+
+    }
   }
 
   
+
+  public static void main(String args[]){
+    
+    System.out.println(getMajorCity(continent));
+ 
+     new Continents();
+   
+   } //END of Main
+ 
+
 } //END Class
