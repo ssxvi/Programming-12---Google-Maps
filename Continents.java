@@ -9,10 +9,12 @@ import java.awt.GridBagLayout;
 public class Continents implements ActionListener{
   JFrame frame;
   JPanel panel;
-  JLabel label;
+  JLabel label, label1;
   JComboBox<String> combo;
   JButton button, button2;
-  JTextField textfield;
+  static int contIndex;
+  static int cityIndex;
+  static String output = "testing output";
 
 
   static int continent = 4;
@@ -108,12 +110,13 @@ public class Continents implements ActionListener{
     GridBagConstraints c = new GridBagConstraints();
 
     label = new JLabel("Welcome to the Continents Program!!");
+    label1 = new JLabel(output);
     button = new JButton("b");
     
     button2 = new JButton("Find a random city!!!");
 
 
-    // istg this is the most scuffed code i've ever seen holy shit it creates 3 warnings and tries to kill itself it's a fuckinb abomination but it works
+    // istg this is the most scuffed code i've ever seen holy shit it creates 3 warnings and tries to kill itself it's a fckinb abomination but it works
     /* 
     Object[] comboArray = contList.toArray();
 
@@ -124,32 +127,33 @@ public class Continents implements ActionListener{
  
     button.addActionListener(this);
     button2.addActionListener(this);
-    
 
-
+    combo.addActionListener(this);
+      
 
  
     frame.add(panel);
 
 
     c.fill = GridBagConstraints.HORIZONTAL;
+    label.setHorizontalAlignment(SwingConstants.CENTER);
     c.gridwidth = 3;
     c.weightx = 0.5;
     c.gridx = 0;
     c.gridy = 0;
     panel.add(label, c);
 
+    label1.setHorizontalAlignment(SwingConstants.CENTER);
+    c.gridy = 3;
+    panel.add(label1, c);
+
 
     c.fill = GridBagConstraints.HORIZONTAL;
     c.insets = new Insets(10,10,10,10);  //top padding
-    c.weightx = 0.5;
-    c.gridx = 0;
     c.gridy = 2;
     panel.add(combo, c);
 
     c.fill = GridBagConstraints.HORIZONTAL;
-    c.weightx = 0.5;
-    c.gridx = 0;
     c.gridy = 1;
     panel.add(button2, c);
 
@@ -160,10 +164,12 @@ public class Continents implements ActionListener{
   } //END construtor
 
 
+
+
   //getMajorCity function
   public static String getMajorCity(int contNumber){
 
-    String output;
+    
 
     switch(contNumber){
       case 1:
@@ -204,19 +210,25 @@ public class Continents implements ActionListener{
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    // TODO Auto-generated method stub
-    System.out.println(e.getActionCommand());
 
     if (e.getSource() == button2){
 
+      if (combo.getSelectedIndex() > 0){
+
+      output = getMajorCity(combo.getSelectedIndex());
+      label1.setText(output);
+
+      }
+    
     }
+
   }
+
+
 
   
 
   public static void main(String args[]){
-    
-    System.out.println(getMajorCity(continent));
  
      new Continents();
    
